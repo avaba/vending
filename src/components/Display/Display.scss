@@ -1,0 +1,51 @@
+.display {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  background: #000;
+  padding: 30px;
+  border-radius: 5px;
+  position: relative;
+  
+  &-item {
+    background: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+
+    &--active {
+      background: #07d70e;
+    }
+    
+    p {
+      margin: 0;
+    }
+
+    &__title {
+      margin: 0 0 5px 0;
+    }
+
+    &__footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      align-items: center;
+      margin-top: auto;
+
+      &--id {
+        font-size: 30px;
+      }
+    }
+  }
+
+  &__cash {
+    position: absolute;
+    color: #fff;
+    top: 0;
+    left: 0;
+    padding: 30px;
+    margin: 0;
+    font-size: 30px;
+  }
+}
