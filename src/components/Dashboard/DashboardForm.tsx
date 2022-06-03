@@ -35,7 +35,7 @@ const DashboardForm = ({data, action}: Props) => {
                    value={!input ? "" : input}
                    disabled={disabled}
             />
-            <button disabled={disabled} className="dashboard-form__btn">Insert</button>
+            <button disabled={disabled} className="dashboard-form__btn">Confirm</button>
         </form>
     );
 };
