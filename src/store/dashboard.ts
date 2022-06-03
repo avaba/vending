@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {IDisplayItem} from "./display";
 import getChange from "../service/getChange";
+import {RootState} from "./index";
+import {IDisplayItem} from "../service/displayList";
 
 export interface IDashboardData {
     label: string,
@@ -16,7 +17,7 @@ export interface ICoinsResult {
     value: number
 }
 
-interface IDashboard {
+export interface IDashboard {
     insert: IDashboardData,
     choose: IDashboardData,
     cash: number,
@@ -120,3 +121,5 @@ export const {
     resetDashboard
 } = dashboardSlice.actions;
 export default dashboardSlice.reducer
+export const dashboardState = (state: RootState) => state.dashboard
+export const dashboardStateCash = (state: RootState) => state.dashboard.cash

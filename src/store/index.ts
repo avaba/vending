@@ -1,10 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import display from "./display";
 import dashboard from "./dashboard";
 
 const store = configureStore({
     reducer: {
-        display: display,
         dashboard: dashboard
     },
 });

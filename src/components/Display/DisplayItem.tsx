@@ -1,18 +1,23 @@
 import React from 'react';
-import {IDisplayItem} from "../../store/display";
+import {useAppSelector} from "../../hooks/useRedux";
+import {dashboardStateCash} from "../../store/dashboard";
+import {IDisplayItem} from "../../service/displayList";
 
-interface IDisplayItemProps {
+interface Props {
     item: IDisplayItem
 }
 
-const DisplayItem = ({item}: IDisplayItemProps) => {
+const DisplayItem = ({item}: Props) => {
+    const {price, name, category, id} = item
+    const cash = useAppSelector(dashboardStateCash)
+
     return (
-        <div className={item.active ? "display-item display-item--active" : "display-item"}>
-            <h3 className="display-item__title">{item.name}</h3>
-            <p>{item.category}</p>
+        <div className={price <= cash ? "display-item display-item--active" : "display-item"}>
+            <h3 className="display-item__title">{name}</h3>
+            <p>{category}</p>
             <div className="display-item__footer">
-                <p>{item.price}₽</p>
-                <p className="display-item__footer--id">{item.id}</p>
+                <p>{price}₽</p>
+                <p className="display-item__footer--id">{id}</p>
             </div>
         </div>
     );

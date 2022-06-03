@@ -1,14 +1,12 @@
 import React from 'react';
 import './Display.scss'
 import DisplayItem from "./DisplayItem";
-import {useAppSelector} from "../../hooks/useRedux";
+import {displayList} from "../../service/displayList";
 
 const Display = () => {
-    const display = useAppSelector((state) => state.display)
-
     return (
         <div className="display">
-            {display.list.map(item => <DisplayItem key={item.id} item={item}/>)}
+            {displayList.map(item => <DisplayItem key={item.id} item={item}/>)}
         </div>
     );
 };
