@@ -1,6 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import getChange from "../service/getChange";
-import {RootState} from "./index";
 import {IDisplayItem} from "../service/displayList";
 
 export interface IDashboardData {
