@@ -7,12 +7,12 @@ interface Props {
 }
 
 const DashboardForm = ({data, action}: Props) => {
-    const {type, label, disabled} = data
-    const [input, setInput] = useState(data.value)
+    const {type, label, disabled, value} = data
+    const [input, setInput] = useState(value)
 
     useEffect(() => {
-        setInput(data.value)
-    }, [data.value])
+        setInput(value)
+    }, [value])
 
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = !e.target.value ? 0 : Number(e.target.value)
@@ -21,7 +21,7 @@ const DashboardForm = ({data, action}: Props) => {
 
     const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        action(Number(+input))
+        action(Number(input))
     }
 
     return (

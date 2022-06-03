@@ -1,12 +1,18 @@
 import React, {useCallback, useState} from 'react';
 import DisplayItem from "../Display/DisplayItem";
 import gif from "../../assets/img/success.gif";
-import {dashboardState, resetDashboard} from "../../store/dashboard";
+import {resetDashboard} from "../../store/dashboard";
 import {useAppDispatch, useAppSelector} from "../../hooks/useRedux";
+import {RootState} from "../../store";
+
+const getCoinsResult = (state: RootState) => state.dashboard.coinsResult
+const getChange = (state: RootState) => state.dashboard.change
+const getProduct = (state: RootState) => state.dashboard.product
 
 const DashboardFooter = () => {
-    const dashboard = useAppSelector(dashboardState)
-    const {coinsResult, change, product} = dashboard
+    const coinsResult = useAppSelector(getCoinsResult)
+    const change = useAppSelector(getChange)
+    const product = useAppSelector(getProduct)
     const dispatch = useAppDispatch()
     const [open, setOpen] = useState(false)
 

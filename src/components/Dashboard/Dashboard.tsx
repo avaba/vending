@@ -4,11 +4,14 @@ import DashboardFooter from './DashboardFooter';
 import DashboardInsert from "./DashboardInsert";
 import DashboardChoose from "./DashboardChoose";
 import {useAppSelector} from "../../hooks/useRedux";
-import {dashboardState} from "../../store/dashboard";
+import {RootState} from "../../store";
+
+const getBanknotes = (state: RootState) => state.dashboard.banknotes
+const getCoins = (state: RootState) => state.dashboard.banknotes
 
 const Dashboard = () => {
-    const dashboard = useAppSelector(dashboardState)
-    const {banknotes, coins} = dashboard
+    const banknotes = useAppSelector(getBanknotes)
+    const coins = useAppSelector(getCoins)
 
     return (
         <div className="dashboard">
