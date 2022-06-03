@@ -1,15 +1,17 @@
 import React from 'react';
 import {useAppSelector} from "../../hooks/useRedux";
-import {dashboardStateCash} from "../../store/dashboard";
 import {IDisplayItem} from "../../service/displayList";
+import {RootState} from "../../store";
 
 interface Props {
     item: IDisplayItem
 }
 
+const getCash = (state: RootState) => state.dashboard.cash
+
 const DisplayItem = ({item}: Props) => {
     const {price, name, category, id} = item
-    const cash = useAppSelector(dashboardStateCash)
+    const cash = useAppSelector(getCash)
 
     return (
         <div className={price <= cash ? "display-item display-item--active" : "display-item"}>

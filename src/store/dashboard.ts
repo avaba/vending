@@ -121,5 +121,3 @@ export const {
     resetDashboard
 } = dashboardSlice.actions;
 export default dashboardSlice.reducer
-export const dashboardState = (state: RootState) => state.dashboard
-export const dashboardStateCash = (state: RootState) => state.dashboard.cash
